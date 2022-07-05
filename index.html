@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+
+<body>
+    <h1>TABUADAS ATÉ O 100</h1>
+    <input type="text" name="resultadodois" id="resultado">
+    <button id="numero">enviar</button>
+    <button id="limpar">limpar tabuada</button>
+    <div class="tabuada"></div>
+
+</body>
+<script>
+    let btn = document.getElementById("numero")
+    let resultado = document.getElementById("resultado")
+    let limpar = document.getElementById("limpar")
+    let tabuada = document.querySelector(".tabuada")
+
+    btn.addEventListener("click", () => {
+
+        if (resultado.value == "") {
+            alert("vc não digitou nada")
+        } else {
+            let n = parseInt(resultado.value)
+
+            let msg = ""
+
+            for (let i = 1; i <= 100; i++) {
+
+                msg += `${n} x ${i} = ${n * i } <br>`
+            }
+
+            tabuada.innerHTML = msg
+            resultado.value = ""
+            resultado.focus()
+        }
+
+
+    })
+
+    limpar.addEventListener("click", function() {
+        tabuada.innerHTML = ""
+    })
+</script>
+
+</html>
